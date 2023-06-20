@@ -1,0 +1,39 @@
+    body {
+      font-family: Arial, sans-serif;
+    }
+    
+    .question {
+      --font-weight: bold;
+      --color: green;
+      margin-bottom: 10px;
+    }
+    .normal {
+      color: black;
+      font-style: normal;
+      text-transform: none;
+    }
+    
+    .correct {
+      color: green;
+    }
+    
+    .fix {
+      background-color: lightgreen;
+      text-transform: uppercase;
+    }
+    
+    .incorrect {
+      font-style: italic;
+      color: red;
+    }
+    
+    #explanation {
+      display: none;
+      margin-top: 10px;
+      background-color: lightgreen;
+      --text-transform: uppercase;      
+    }
+    
+    .summary {
+      margin-top: 20px;
+    }
