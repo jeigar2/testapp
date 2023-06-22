@@ -164,4 +164,27 @@ function generateRandomNumbers(count, max) {
 var TOTAL_NUMBERS_QUESTIONS = 7;
 var totalQuestions = questions.length;
 var randomNumbersQuestion = generateRandomNumbers(TOTAL_NUMBERS_QUESTIONS, totalQuestions);
+
+function startCountdown(minutes) {
+  var seconds = minutes * 60;
+
+  var countdownInterval = setInterval(function() {
+    var minutesText = Math.floor(seconds / 60).toString().padStart(2, '0');
+    var secondsText = (seconds % 60).toString().padStart(2, '0');
+    var clockText = minutesText + ':' + secondsText;
+
+    document.getElementById("clock").innerText = clockText;
+
+    if (seconds <= 0) {
+      clearInterval(countdownInterval);
+      document.getElementById("clock").innerText = "Countdown finished!";
+    } else {
+      seconds--;
+    }
+  }, 1000);
+}
+
+var initialMinutes = TOTAL_NUMBERS_QUESTIONS * 2;
+startCountdown(initialMinutes);
+
 showQuestion();
