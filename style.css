@@ -21,7 +21,11 @@
       background-color: lightgreen;
       text-transform: uppercase;
     }
-    
+    .error {
+        background-color: rgb(247, 208, 201);
+        text-transform: uppercase;
+      }
+          
     .incorrect {
       font-style: italic;
       color: red;
