@@ -12,10 +12,11 @@ function showQuestion() {
   var nextBtn = document.getElementById("nextBtn");
   var counterContainer = document.getElementById("counter");
 
-  var totalQuestions = questions.length;
-  counterContainer.innerHTML = "Preguntas: [" + (currentQuestionIndex+1) + " de " + totalQuestions + "]";
 
-  var currentQuestion = questions[currentQuestionIndex];
+  counterContainer.innerHTML = "Preguntas: [" + (currentQuestionIndex+1) + " de " + TOTAL_NUMBERS_QUESTIONS + "]";
+
+  var randomIndex = randomNumbersQuestion[currentQuestionIndex];
+  var currentQuestion = questions[randomIndex];
 
   questionContainer.innerHTML = "<div class='question'>" + currentQuestion.question + "</div>";
   currentExplanation = currentQuestion.explanation;
@@ -113,8 +114,8 @@ function nextQuestion() {
 
   nextBtn.style.display = "none";
   explanationBtn.style.display = "none";
-  var totalQuestions = questions.length;
-  if (currentQuestionIndex === totalQuestions - 1) {
+
+  if (currentQuestionIndex === TOTAL_NUMBERS_QUESTIONS - 1) {
     showSummary();
   } else {
     currentQuestionIndex++;
@@ -149,4 +150,18 @@ function repeatIncorrectQuestions() {
   showQuestion();
 }
 
+function generateRandomNumbers(count, max) {
+  var randomNumbers = new Set();
+
+  while (randomNumbers.size < count) {
+    var randomNumber = Math.floor(Math.random() * max) + 1;
+    randomNumbers.add(randomNumber);
+  }
+
+  return Array.from(randomNumbers);
+}
+
+var TOTAL_NUMBERS_QUESTIONS = 7;
+var totalQuestions = questions.length;
+var randomNumbersQuestion = generateRandomNumbers(TOTAL_NUMBERS_QUESTIONS, totalQuestions);
 showQuestion();
