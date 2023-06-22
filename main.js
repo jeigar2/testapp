@@ -10,6 +10,10 @@ function showQuestion() {
   var checkBtn = document.getElementById("checkBtn");
   var explanationBtn = document.getElementById("explanationBtn");
   var nextBtn = document.getElementById("nextBtn");
+  var counterContainer = document.getElementById("counter");
+
+  var totalQuestions = questions.length;
+  counterContainer.innerHTML = "Preguntas: [" + (currentQuestionIndex+1) + " de " + totalQuestions + "]";
 
   var currentQuestion = questions[currentQuestionIndex];
 
@@ -109,8 +113,8 @@ function nextQuestion() {
 
   nextBtn.style.display = "none";
   explanationBtn.style.display = "none";
-
-  if (currentQuestionIndex === questions.length - 1) {
+  var totalQuestions = questions.length;
+  if (currentQuestionIndex === totalQuestions - 1) {
     showSummary();
   } else {
     currentQuestionIndex++;
