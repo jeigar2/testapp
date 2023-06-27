@@ -184,7 +184,7 @@ function startCountdown(minutes) {
   }, 1000);
 }
 
-var initialMinutes = TOTAL_NUMBERS_QUESTIONS * 2;
+var initialMinutes = TOTAL_NUMBERS_QUESTIONS * 1.5;
 startCountdown(initialMinutes);
 
 showQuestion();
